@@ -1,4 +1,4 @@
 scikit-survival==0.16.0
 joblib==1.1.0
-streamlit ==1.0
+streamlit ==1.2.0
 matplotlib==3.3.4
