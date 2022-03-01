@@ -9,7 +9,8 @@ import plotly_express as px
 import streamlit.components.v1 as components
 
 import shap
-import joblib
+# import joblib
+import pickle
 
 st.set_option('deprecation.showPyplotGlobalUse', False)
 st.set_page_config(
@@ -30,12 +31,12 @@ def predict_hazard(mode,df):
     return predicted_data
 
 #加载训练好的模型
-model = joblib.load("rsf_all.jl")
+# model = joblib.load("rsf_all.jl")
+model = pickle.load(open('rsf_all.pkl','rb'))
 
 #加载通过训练数据集得到的特征解释
 # filename_expl = 'explainer_all.jl'
-# explainer = pickle.load(open(filename_expl, 'rb'))
-explainer = joblib.load('explainer_all.jl')
+explainer = pickle.load(open('explainer_all.sav', 'rb'))
 
 #设置界面
 st.title("CVD patient heart failure survival and hazard risk prediction")
